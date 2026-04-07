@@ -1,13 +1,13 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: Arial;
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+  pointer-events: none; /* VERY IMPORTANT */
 }
 
 .section {
