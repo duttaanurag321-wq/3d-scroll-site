@@ -1,21 +1,1175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>3D Scroll Site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FINS Capital — India's trusted loan aggregator. Compare home loans, personal loans, business loans from 40+ lenders. Get the best rate in minutes.">
+  <title>FINS Capital — Financial Intelligence Network Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <section class="section">Scroll Down</section>
-  <section class="section">Keep Scrolling</section>
-  <section class="section">End</section>
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" data-page="home">
+        <div class="nav-logo-mark">F</div>
+        <div>
+          <div class="nav-logo-text">FINS Capital</div>
+          <span class="nav-logo-sub">Financial Intelligence</span>
+        </div>
+      </a>
 
-  <canvas id="webgl"></canvas>
+      <ul class="nav-links" id="navLinks">
+        <li><a class="nav-link active" data-page="home" href="#">Home</a></li>
+        <li><a class="nav-link" data-page="services" href="#">Services</a></li>
+        <li><a class="nav-link" data-page="about" href="#">About</a></li>
+        <li><a class="nav-link" data-page="contact" href="#">Contact</a></li>
+      </ul>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" data-page="contact" href="#">Talk to Expert</a>
+        <a class="btn btn-primary" data-page="apply" href="#">Apply Now →</a>
+      </div>
 
-  <script src="script.js"></script>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-gradient"></div>
+      <div class="hero-glow"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <span class="kicker-dot"></span>
+            India's Trusted Loan Aggregator
+          </div>
+
+          <h1 class="hero-headline">
+            Your Best Loan.<br>
+            <span class="underline-gold">One Smart</span><br>
+            <span class="accent">Decision.</span>
+          </h1>
+
+          <p class="hero-sub">
+            Compare offers from 40+ banks and NBFCs in real time. No hidden charges, no repeated applications — just transparent choices, backed by expert guidance.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn--lg" data-page="apply" href="#">
+              Apply in 3 Minutes →
+            </a>
+            <a class="btn btn-secondary btn--lg" data-page="contact" href="#">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+              Talk to Expert
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-item">
+              <div>
+                <div class="trust-item-val">₹4,200 Cr+</div>
+                <div class="trust-item-label">Loans Disbursed</div>
+              </div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div>
+                <div class="trust-item-val">1.8L+</div>
+                <div class="trust-item-label">Customers Served</div>
+              </div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div>
+                <div class="trust-item-val">40+</div>
+                <div class="trust-item-label">Lending Partners</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="hero-visual">
+          <div class="loan-card">
+            <div class="loan-card-header">
+              <span class="lc-badge">LIVE OFFER</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="lc-amount">₹35,00,000</div>
+            <div class="lc-label">Home Loan · 20 Years</div>
+            <div class="lc-stats">
+              <div class="lc-stat-item">
+                <div class="lc-stat-val">8.5%</div>
+                <div class="lc-stat-key">Interest p.a.</div>
+              </div>
+              <div class="lc-stat-item">
+                <div class="lc-stat-val">₹30,350</div>
+                <div class="lc-stat-key">EMI / month</div>
+              </div>
+              <div class="lc-stat-item">
+                <div class="lc-stat-val">24 hrs</div>
+                <div class="lc-stat-key">Approval Time</div>
+              </div>
+              <div class="lc-stat-item">
+                <div class="lc-stat-val">HDFC</div>
+                <div class="lc-stat-key">Best Match</div>
+              </div>
+            </div>
+            <div class="lc-progress">
+              <div class="lc-progress-label">
+                <span>Offer match strength</span>
+                <span>68% → 94%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="heroProgress"></div>
+              </div>
+            </div>
+            <div class="lc-footer">
+              <span>40+ lenders compared</span>
+              <div class="lc-bank-logos">
+                <div class="lc-bank-chip"></div>
+                <div class="lc-bank-chip"></div>
+                <div class="lc-bank-chip"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-offer">
+            <div class="fo-rate">8.5% p.a.</div>
+            <div class="fo-label">Lowest rate found</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <span class="trust-bar-label">Lending Partners</span>
+        <div class="partner-logos">
+          <span class="partner-logo">HDFC Bank</span>
+          <span class="partner-logo">ICICI Bank</span>
+          <span class="partner-logo">Axis Bank</span>
+          <span class="partner-logo">SBI</span>
+          <span class="partner-logo">Kotak</span>
+          <span class="partner-logo">Bajaj Finserv</span>
+          <span class="partner-logo">IDFC First</span>
+          <span class="partner-logo">Tata Capital</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-card reveal">
+          <div class="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="metric-value" data-count="4200" data-suffix="Cr+">₹0</div>
+          <div class="metric-label">Loans Disbursed</div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="metric-value" data-count="180000" data-suffix="+">0</div>
+          <div class="metric-label">Customers Served</div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+          <div class="metric-value" data-count="40" data-suffix="+">0</div>
+          <div class="metric-label">Lending Partners</div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="metric-value" data-count="97" data-suffix="%">0</div>
+          <div class="metric-label">Approval Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process-section section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-kicker">How It Works</div>
+        <h2 class="heading-2">Three steps to your best loan</h2>
+        <p>No paperwork maze. No branch visits. Just a clear, guided process designed to get you the right offer fast.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-title">Share Your Profile</div>
+          <p class="step-desc">A 3-minute form. Employment type, income, and loan requirement — that's all we need to start.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">02</div>
+          <div class="step-title">Compare Real Offers</div>
+          <p class="step-desc">Our engine matches your profile against 40+ lenders and surfaces verified, pre-qualified offers instantly.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-title">Apply & Disburse</div>
+          <p class="step-desc">Choose your preferred offer, complete KYC digitally, and receive funds directly to your account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Snapshot -->
+  <section class="services-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Our Services</div>
+        <h2 class="heading-2">Every lending need, covered</h2>
+        <p>From home ownership to business growth — we find the right lender for your specific situation.</p>
+      </div>
+      <div class="grid-3">
+        <div class="service-card reveal" data-page="services">
+          <div class="service-icon" style="background:#e0f5f5;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d7373" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="service-card-title">Home Loan</div>
+          <p class="service-card-desc">Finance your dream home with competitive rates and flexible tenures up to 30 years from India's top banks.</p>
+          <div class="service-card-meta">
+            <span>Up to ₹5 Cr · 30 yrs</span>
+            <span class="service-rate">from 8.40%</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-page="services">
+          <div class="service-icon" style="background:#f0f0ff;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#163a7a" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <div class="service-card-title">Personal Loan</div>
+          <p class="service-card-desc">Unsecured personal loans disbursed in as little as 24 hours. Zero collateral. Minimal documentation.</p>
+          <div class="service-card-meta">
+            <span>Up to ₹40 L · 5 yrs</span>
+            <span class="service-rate">from 10.50%</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-page="services">
+          <div class="service-icon" style="background:#fff8e0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="service-card-title">Business Loan</div>
+          <p class="service-card-desc">Working capital, term loans, and machinery finance for MSMEs and growing businesses across India.</p>
+          <div class="service-card-meta">
+            <span>Up to ₹2 Cr · 7 yrs</span>
+            <span class="service-rate">from 12.00%</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-page="services">
+          <div class="service-icon" style="background:#fff0f0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="service-card-title">Loan Against Property</div>
+          <p class="service-card-desc">Unlock the value of your residential or commercial property for higher loan amounts at secured rates.</p>
+          <div class="service-card-meta">
+            <span>Up to ₹10 Cr · 15 yrs</span>
+            <span class="service-rate">from 9.25%</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-page="services">
+          <div class="service-icon" style="background:#f0fff0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5"><path d="M12 22V12M12 12L8 8M12 12l4-4"/><circle cx="12" cy="4" r="2"/><path d="M5 20.5A7 7 0 0112 14a7 7 0 017 6.5"/></svg>
+          </div>
+          <div class="service-card-title">Balance Transfer</div>
+          <p class="service-card-desc">Switch your existing high-interest loan to a better lender and reduce your EMI significantly.</p>
+          <div class="service-card-meta">
+            <span>Save up to ₹8L interest</span>
+            <span class="service-rate">from 8.50%</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" data-page="services">
+          <div class="service-icon" style="background:#f5f0ff;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="service-card-title">Credit Health</div>
+          <p class="service-card-desc">Free CIBIL score check, credit report analysis, and personalized guidance to improve your eligibility.</p>
+          <div class="service-card-meta">
+            <span>Free · Instant report</span>
+            <span class="service-rate">No hard pull</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Client Experiences</div>
+        <h2 class="heading-2" style="color:var(--white)">Real people. Real results.</h2>
+      </div>
+    </div>
+    <div class="testimonial-track" id="testimonialTrack">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"I had been rejected twice before approaching FINS Capital. Their advisor reviewed my profile in detail, identified the exact lender who would approve, and I had the sanction letter within 48 hours. The transparency throughout was exceptional."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RK</div>
+          <div>
+            <div class="author-name">Rajesh Kumar</div>
+            <div class="author-role">Senior Manager, Bengaluru</div>
+          </div>
+          <span class="loan-tag">Home Loan</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"As a self-employed professional, banks usually have endless requirements. FINS Capital's team understood my income structure and found me a business loan at 12.5% when my bank was quoting 16.5%. That's a significant saving every single month."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PM</div>
+          <div>
+            <div class="author-name">Priya Mehta</div>
+            <div class="author-role">CA & Business Owner, Mumbai</div>
+          </div>
+          <span class="loan-tag">Business Loan</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"The balance transfer they recommended reduced my EMI by ₹4,200 per month. Over the remaining tenure, that's nearly ₹7 lakh in savings. I wish I had done this earlier. The process was seamless and took less than a week."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div>
+            <div class="author-name">Ankit Sharma</div>
+            <div class="author-role">Software Engineer, Pune</div>
+          </div>
+          <span class="loan-tag">Balance Transfer</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"My CIBIL score was 698 and I was worried no bank would give me a personal loan. FINS Capital's credit advisor helped me understand what was pulling it down, suggested two specific steps, and within three months I had a loan approved at a good rate."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">NJ</div>
+          <div>
+            <div class="author-name">Nandini Joshi</div>
+            <div class="author-role">Teacher, Ahmedabad</div>
+          </div>
+          <span class="loan-tag">Personal Loan</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Applied on a Saturday evening, got the call Sunday morning, offer letter by Monday afternoon. FINS Capital's efficiency is genuinely impressive. No running around, no confusing paperwork — just results."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">VR</div>
+          <div>
+            <div class="author-name">Vikram Rao</div>
+            <div class="author-role">Operations Director, Chennai</div>
+          </div>
+          <span class="loan-tag">Personal Loan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-kicker" style="justify-content:center; color:var(--teal-300);">Get Started Today</div>
+        <h2 class="heading-2">Don't settle for the first offer you see.</h2>
+        <p>Compare 40+ lenders in minutes. Your ideal loan is closer than you think.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn--lg" data-page="apply" href="#">Apply Now — It's Free →</a>
+          <a class="btn btn-secondary btn--lg" data-page="contact" href="#">Speak to an Advisor</a>
+        </div>
+        <p class="cta-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; margin-right:4px; vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Your data is encrypted and never sold. RBI compliant. CIBIL soft check only.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end home -->
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: SERVICES
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="section-kicker">Products</div>
+        <h1 class="heading-1">Lending solutions for every need</h1>
+        <p class="body-lg">Structured products, transparent terms, and lender-agnostic advice — we work for you, not the bank.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--grey-50);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Secured Loans</div>
+        <h2 class="heading-2">Asset-backed financing</h2>
+      </div>
+      <div class="services-detail">
+        <div class="service-detail-card reveal">
+          <div class="sdc-header">
+            <div class="service-icon" style="background:#e0f5f5; flex-shrink:0;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d7373" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <div class="service-card-title">Home Loan</div>
+              <p style="font-size:var(--text-sm); color:var(--grey-500); margin-top:4px;">For purchase, construction & renovation</p>
+            </div>
+          </div>
+          <div class="sdc-body">
+            <div class="sdc-features">
+              <div class="sdc-feature">Loan up to ₹5 Cr with tenure up to 30 years</div>
+              <div class="sdc-feature">Funding up to 90% of property value</div>
+              <div class="sdc-feature">Joint applications accepted — improves eligibility</div>
+              <div class="sdc-feature">Tax benefit under Section 80C and 24(b)</div>
+              <div class="sdc-feature">PMAY subsidy applicable for eligible borrowers</div>
+            </div>
+            <div class="sdc-rate-row">
+              <div><div class="rate-label">Interest Rate</div><div class="rate-value">8.40% – 10.5% p.a.</div></div>
+              <a class="btn btn-primary btn--sm" data-page="apply" href="#">Apply</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail-card reveal">
+          <div class="sdc-header">
+            <div class="service-icon" style="background:#fff0e0; flex-shrink:0;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            </div>
+            <div>
+              <div class="service-card-title">Loan Against Property</div>
+              <p style="font-size:var(--text-sm); color:var(--grey-500); margin-top:4px;">Residential & commercial properties</p>
+            </div>
+          </div>
+          <div class="sdc-body">
+            <div class="sdc-features">
+              <div class="sdc-feature">Borrow up to 70% of market value</div>
+              <div class="sdc-feature">Maximum loan ₹10 Cr, tenure up to 15 years</div>
+              <div class="sdc-feature">Ideal for business expansion or education</div>
+              <div class="sdc-feature">Both residential and commercial properties eligible</div>
+              <div class="sdc-feature">No restrictions on end use of funds</div>
+            </div>
+            <div class="sdc-rate-row">
+              <div><div class="rate-label">Interest Rate</div><div class="rate-value">9.25% – 13.0% p.a.</div></div>
+              <a class="btn btn-primary btn--sm" data-page="apply" href="#">Apply</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Unsecured Loans</div>
+        <h2 class="heading-2">Fast capital, no collateral</h2>
+      </div>
+      <div class="services-detail">
+        <div class="service-detail-card reveal">
+          <div class="sdc-header">
+            <div class="service-icon" style="background:#f0f0ff; flex-shrink:0;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#163a7a" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+            </div>
+            <div>
+              <div class="service-card-title">Personal Loan</div>
+              <p style="font-size:var(--text-sm); color:var(--grey-500); margin-top:4px;">Salaried & self-employed professionals</p>
+            </div>
+          </div>
+          <div class="sdc-body">
+            <div class="sdc-features">
+              <div class="sdc-feature">Up to ₹40 lakh with zero collateral</div>
+              <div class="sdc-feature">Disbursal in as little as 24 working hours</div>
+              <div class="sdc-feature">Minimal documentation — Aadhaar, PAN, salary slips</div>
+              <div class="sdc-feature">Flexible tenure: 12 to 60 months</div>
+              <div class="sdc-feature">Prepayment available after 12 EMIs (lender-specific)</div>
+            </div>
+            <div class="sdc-rate-row">
+              <div><div class="rate-label">Interest Rate</div><div class="rate-value">10.50% – 24.0% p.a.</div></div>
+              <a class="btn btn-primary btn--sm" data-page="apply" href="#">Apply</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-detail-card reveal">
+          <div class="sdc-header">
+            <div class="service-icon" style="background:#fff8e0; flex-shrink:0;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div>
+              <div class="service-card-title">Business Loan</div>
+              <p style="font-size:var(--text-sm); color:var(--grey-500); margin-top:4px;">For MSMEs and growing enterprises</p>
+            </div>
+          </div>
+          <div class="sdc-body">
+            <div class="sdc-features">
+              <div class="sdc-feature">Working capital and term loans up to ₹2 Cr</div>
+              <div class="sdc-feature">No collateral required for loans up to ₹75 lakh (CGTMSE)</div>
+              <div class="sdc-feature">Profit & loss account and bank statements sufficient</div>
+              <div class="sdc-feature">Open to proprietorships, partnerships, private limited</div>
+              <div class="sdc-feature">Minimum 2 years of business vintage required</div>
+            </div>
+            <div class="sdc-rate-row">
+              <div><div class="rate-label">Interest Rate</div><div class="rate-value">12.00% – 21.0% p.a.</div></div>
+              <a class="btn btn-primary btn--sm" data-page="apply" href="#">Apply</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="heading-2">Not sure which loan is right for you?</h2>
+        <p>Our advisors will analyse your profile and recommend the most suitable product — at no cost.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn--lg" data-page="apply" href="#">Start Your Application →</a>
+          <a class="btn btn-secondary btn--lg" data-page="contact" href="#">Get Free Advice</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- end services -->
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="section-kicker">About FINS Capital</div>
+        <h1 class="heading-1">Built on trust,<br>driven by technology</h1>
+        <p class="body-lg">We are a RBI-registered financial services intermediary, founded with a singular purpose — to make credit access simple, honest, and efficient for every Indian borrower.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="about-story">
+        <div class="reveal-left">
+          <div class="section-kicker">Our Story</div>
+          <h2 class="heading-2" style="margin-bottom:var(--space-6);">Why we exist</h2>
+          <p style="color:var(--grey-500); line-height:var(--leading-relaxed); margin-bottom:var(--space-4);">
+            India's credit gap is not a supply problem — it's a mismatch problem. Lenders have capital. Borrowers have need. But the system in between is opaque, fragmented, and often biased against the uninformed.
+          </p>
+          <p style="color:var(--grey-500); line-height:var(--leading-relaxed); margin-bottom:var(--space-4);">
+            FINS Capital was founded in 2018 by a team of bankers and technologists who saw this clearly. Our mission was to build an intermediary that is genuinely neutral — one that earns its fee only when the borrower gets a good deal.
+          </p>
+          <p style="color:var(--grey-500); line-height:var(--leading-relaxed); margin-bottom:var(--space-8);">
+            Today, we work with 40+ lenders across India, have served over 1.8 lakh customers, and maintain a 97% sanction rate for applications we formally submit — because we only submit when we're confident.
+          </p>
+          <a class="btn btn-outline" data-page="apply" href="#">Work With Us →</a>
+        </div>
+        <div class="reveal-right">
+          <div class="about-visual">
+            <div class="about-stat">
+              <div class="about-stat-val">2018</div>
+              <div class="about-stat-label">Year Founded</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-val">40+</div>
+              <div class="about-stat-label">Bank Partners</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-val">₹4,200Cr</div>
+              <div class="about-stat-label">Loans Facilitated</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-val">97%</div>
+              <div class="about-stat-label">Sanction Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--grey-50);">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-kicker">Our Principles</div>
+        <h2 class="heading-2">What we stand for</h2>
+        <p>Three values that govern every decision we make — from the advice we give to the lenders we partner with.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-card-title">Radical Transparency</div>
+          <p>We disclose our compensation model upfront. We tell you exactly which lenders we work with and why. We never push a product that isn't right for you — even if it pays us more.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-title">Lender Agnosticism</div>
+          <p>Our recommendation algorithm is designed to find your best offer — not our most profitable one. We are empanelled with 40+ lenders specifically so we are never dependent on any single relationship.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-title">Long-Term Thinking</div>
+          <p>A customer who gets a bad loan does not return. A customer who gets a great deal — and knows it — becomes a referral source for life. Our business model is built on lifetime value, not short-term commissions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-kicker">Regulatory</div>
+        <h2 class="heading-2">Compliant, certified, accountable</h2>
+      </div>
+      <div class="grid-4" style="max-width:800px; margin:0 auto;">
+        <div class="metric-card reveal" style="text-align:center;">
+          <div style="font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; color:var(--navy-900); margin-bottom:var(--space-2);">RBI Registered</div>
+          <div style="font-size:var(--text-xs); color:var(--grey-400);">Loan Service Provider</div>
+        </div>
+        <div class="metric-card reveal">
+          <div style="font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; color:var(--navy-900); margin-bottom:var(--space-2);">ISO 27001</div>
+          <div style="font-size:var(--text-xs); color:var(--grey-400);">Data Security Certified</div>
+        </div>
+        <div class="metric-card reveal">
+          <div style="font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; color:var(--navy-900); margin-bottom:var(--space-2);">MCA Compliant</div>
+          <div style="font-size:var(--text-xs); color:var(--grey-400);">Corporate Filings Current</div>
+        </div>
+        <div class="metric-card reveal">
+          <div style="font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; color:var(--navy-900); margin-bottom:var(--space-2);">CIBIL Partner</div>
+          <div style="font-size:var(--text-xs); color:var(--grey-400);">Soft-pull access only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- end about -->
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="section-kicker">Contact</div>
+        <h1 class="heading-1">Talk to a loan advisor</h1>
+        <p class="body-lg">Have questions? Our advisors are available Monday–Saturday, 9 AM – 7 PM. Response within 2 business hours guaranteed.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--grey-50);">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="section-kicker">Reach Us</div>
+          <h2 class="heading-2" style="margin-bottom:var(--space-8);">We're here to help</h2>
+
+          <div class="contact-info-item">
+            <div class="ci-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-value">1800-120-FINS (3467)</div>
+              <div style="font-size:var(--text-xs); color:var(--grey-400); margin-top:2px;">Toll-free · Mon–Sat · 9 AM – 7 PM</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value">advisory@finscapital.in</div>
+              <div style="font-size:var(--text-xs); color:var(--grey-400); margin-top:2px;">Response within 2 business hours</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Registered Office</div>
+              <div class="ci-value">Prestige Meridian II, 5th Floor</div>
+              <div style="font-size:var(--text-xs); color:var(--grey-400); margin-top:2px;">MG Road, Bengaluru – 560 001</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">WhatsApp</div>
+              <div class="ci-value">+91 98765 43210</div>
+              <div style="font-size:var(--text-xs); color:var(--grey-400); margin-top:2px;">Send "HELP" to start a conversation</div>
+            </div>
+          </div>
+
+          <div style="margin-top:var(--space-8); padding:var(--space-6); background:var(--teal-100); border-radius:var(--radius-xl); border-left:3px solid var(--teal-400);">
+            <div style="font-size:var(--text-sm); font-weight:var(--weight-semibold); color:var(--teal-700); margin-bottom:var(--space-2);">Prefer to apply directly?</div>
+            <p style="font-size:var(--text-sm); color:var(--teal-700); margin-bottom:var(--space-4);">Our online application takes 3 minutes and gives you verified offers with no obligation.</p>
+            <a class="btn btn-primary btn--sm" data-page="apply" href="#">Apply Online →</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <div class="contact-form-title">Send us a message</div>
+          <form id="contactForm" novalidate>
+            <div style="display:flex; flex-direction:column; gap:var(--space-5);">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="c-name">Full Name <span>*</span></label>
+                  <input type="text" id="c-name" class="form-control" placeholder="Rahul Verma" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-phone">Mobile Number <span>*</span></label>
+                  <input type="tel" id="c-phone" class="form-control" placeholder="98765 43210" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-email">Email Address</label>
+                <input type="email" id="c-email" class="form-control" placeholder="rahul@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-subject">Enquiry Type <span>*</span></label>
+                <select id="c-subject" class="form-control form-select" required>
+                  <option value="">Select enquiry type</option>
+                  <option>Home Loan</option>
+                  <option>Personal Loan</option>
+                  <option>Business Loan</option>
+                  <option>Loan Against Property</option>
+                  <option>Balance Transfer</option>
+                  <option>Credit Score Help</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-message">Message</label>
+                <textarea id="c-message" class="form-control" rows="4" placeholder="Tell us what you're looking for..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:var(--space-4);">
+                Send Message →
+              </button>
+              <p class="trust-microcopy" style="margin-top:0;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Your information is kept strictly confidential
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- end contact -->
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: APPLY
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-apply">
+  <div class="apply-page">
+    <div class="container">
+      <div class="apply-layout">
+
+        <!-- Main Form -->
+        <div>
+          <div style="margin-bottom:var(--space-6);">
+            <div class="section-kicker">Loan Application</div>
+            <h1 style="font-family:var(--font-display); font-size:var(--text-3xl); font-weight:var(--weight-bold); color:var(--navy-900); margin-bottom:var(--space-2);">Find your best loan offer</div>
+            <p style="color:var(--grey-400); font-size:var(--text-sm);">3 minutes · Free · No credit score impact</p>
+          </div>
+
+          <div class="apply-form-container">
+            <!-- Progress -->
+            <div class="form-progress">
+              <div class="progress-steps" id="progressSteps">
+                <div class="ps-step"><div class="ps-dot active" id="dot-1">1</div><div class="ps-line" id="line-1"></div></div>
+                <div class="ps-step"><div class="ps-dot" id="dot-2">2</div><div class="ps-line" id="line-2"></div></div>
+                <div class="ps-step"><div class="ps-dot" id="dot-3">3</div><div class="ps-line" id="line-3"></div></div>
+                <div class="ps-step"><div class="ps-dot" id="dot-4">4</div><div class="ps-line" id="line-4"></div></div>
+                <div class="ps-step"><div class="ps-dot" id="dot-5">5</div></div>
+              </div>
+              <div class="progress-text">
+                <span id="progressLabel">Step <strong>1</strong> of 5</span>
+                <span id="progressDesc">Basic Details</span>
+              </div>
+            </div>
+
+            <!-- STEP 1: Basic Info -->
+            <div class="form-step active" id="step-1">
+              <div class="step-header">
+                <h2>Let's start with the basics</h2>
+                <p>We'll use this to retrieve verified offers from our lending partners.</p>
+              </div>
+              <div class="form-fields">
+                <div class="form-group">
+                  <label class="form-label" for="a-name">Full Name <span>*</span></label>
+                  <input type="text" id="a-name" class="form-control" placeholder="As per PAN card" required autocomplete="name">
+                  <span class="form-hint">Your name as it appears on official documents.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="a-phone">Mobile Number <span>*</span></label>
+                  <input type="tel" id="a-phone" class="form-control" placeholder="10-digit mobile number" required autocomplete="tel" maxlength="10">
+                  <span class="form-hint">We'll send offer details to this number. No spam — ever.</span>
+                </div>
+              </div>
+              <div class="form-nav">
+                <button class="btn-back" disabled>← Back</button>
+                <button class="btn btn-primary" onclick="nextStep(1)">Continue →</button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Employment -->
+            <div class="form-step" id="step-2">
+              <div class="step-header">
+                <h2>Your employment profile</h2>
+                <p>This helps us match you with lenders who specialise in your borrower type.</p>
+              </div>
+              <div class="form-fields">
+                <div class="form-group">
+                  <label class="form-label">Employment Type <span>*</span></label>
+                  <div class="radio-group">
+                    <div class="radio-pill">
+                      <input type="radio" name="emp" id="emp-salaried" value="salaried">
+                      <label for="emp-salaried">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                        Salaried
+                      </label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" name="emp" id="emp-self" value="self-employed">
+                      <label for="emp-self">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+                        Self-Employed
+                      </label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" name="emp" id="emp-business" value="business">
+                      <label for="emp-business">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        Business Owner
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="a-income">Monthly Income / Turnover <span>*</span></label>
+                  <select id="a-income" class="form-control form-select" required>
+                    <option value="">Select range</option>
+                    <option value="25000">₹15,000 – ₹25,000</option>
+                    <option value="50000">₹25,001 – ₹50,000</option>
+                    <option value="100000">₹50,001 – ₹1,00,000</option>
+                    <option value="300000">₹1,00,001 – ₹3,00,000</option>
+                    <option value="999999">Above ₹3,00,000</option>
+                  </select>
+                  <span class="form-hint">Net in-hand salary or average monthly business income.</span>
+                </div>
+              </div>
+              <div class="form-nav">
+                <button class="btn-back" onclick="prevStep(2)">← Back</button>
+                <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Existing Loans -->
+            <div class="form-step" id="step-3">
+              <div class="step-header">
+                <h2>Existing loan obligations</h2>
+                <p>Lenders factor in your current EMIs when calculating eligibility. Honest answers give better results.</p>
+              </div>
+              <div class="form-fields">
+                <div class="form-group">
+                  <label class="form-label">Do you have any active loans? <span>*</span></label>
+                  <div class="radio-group">
+                    <div class="radio-pill">
+                      <input type="radio" name="hasLoan" id="loan-yes" value="yes" onchange="toggleExistingLoan(true)">
+                      <label for="loan-yes">Yes, I have active loans</label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" name="hasLoan" id="loan-no" value="no" onchange="toggleExistingLoan(false)">
+                      <label for="loan-no">No active loans</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="conditional-group" id="existingLoanGroup">
+                  <div class="form-group">
+                    <label class="form-label" for="a-emi">Total Monthly EMI Outgo <span>*</span></label>
+                    <input type="number" id="a-emi" class="form-control" placeholder="e.g. 15000" min="0">
+                    <span class="form-hint">Sum of all active EMIs — home, car, personal loans, etc.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-nav">
+                <button class="btn-back" onclick="prevStep(3)">← Back</button>
+                <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+              </div>
+            </div>
+
+            <!-- STEP 4: Balance Transfer -->
+            <div class="form-step" id="step-4">
+              <div class="step-header">
+                <h2>Reduce your interest burden</h2>
+                <p>If you have an existing high-interest loan, a balance transfer could save you lakhs over the tenure.</p>
+              </div>
+              <div class="form-fields">
+                <div class="form-group">
+                  <label class="form-label">Are you interested in a balance transfer?</label>
+                  <div class="radio-group">
+                    <div class="radio-pill">
+                      <input type="radio" name="bt" id="bt-yes" value="yes">
+                      <label for="bt-yes">Yes, explore lower rate</label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" name="bt" id="bt-no" value="no">
+                      <label for="bt-no">Not right now</label>
+                    </div>
+                  </div>
+                  <span class="form-hint">A soft check — no impact on your CIBIL score to compare options.</span>
+                </div>
+                <div style="background:var(--teal-100); border-radius:var(--radius-lg); padding:var(--space-5);">
+                  <div style="font-size:var(--text-sm); font-weight:var(--weight-semibold); color:var(--teal-700); margin-bottom:var(--space-2);">Customers who explored balance transfer saved on average:</div>
+                  <div style="font-family:var(--font-display); font-size:var(--text-3xl); font-weight:var(--weight-bold); color:var(--teal-600);">₹4.2 Lakh</div>
+                  <div style="font-size:var(--text-xs); color:var(--teal-600);">over the remaining loan tenure</div>
+                </div>
+              </div>
+              <div class="form-nav">
+                <button class="btn-back" onclick="prevStep(4)">← Back</button>
+                <button class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+              </div>
+            </div>
+
+            <!-- STEP 5: Loan Requirement -->
+            <div class="form-step" id="step-5">
+              <div class="step-header">
+                <h2>What are you applying for?</h2>
+                <p>The final step. This is where we go get you offers.</p>
+              </div>
+              <div class="form-fields">
+                <div class="form-group">
+                  <label class="form-label">Loan Type <span>*</span></label>
+                  <div class="radio-group">
+                    <div class="radio-pill"><input type="radio" name="loanType" id="lt-home" value="home"><label for="lt-home">Home Loan</label></div>
+                    <div class="radio-pill"><input type="radio" name="loanType" id="lt-personal" value="personal"><label for="lt-personal">Personal Loan</label></div>
+                    <div class="radio-pill"><input type="radio" name="loanType" id="lt-business" value="business"><label for="lt-business">Business Loan</label></div>
+                    <div class="radio-pill"><input type="radio" name="loanType" id="lt-lap" value="lap"><label for="lt-lap">Loan Against Property</label></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="a-amount">Loan Amount Required <span>*</span></label>
+                  <select id="a-amount" class="form-control form-select" required>
+                    <option value="">Select loan amount</option>
+                    <option>Up to ₹5 Lakh</option>
+                    <option>₹5 – ₹15 Lakh</option>
+                    <option>₹15 – ₹30 Lakh</option>
+                    <option>₹30 – ₹75 Lakh</option>
+                    <option>₹75 Lakh – ₹2 Cr</option>
+                    <option>Above ₹2 Cr</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-nav">
+                <button class="btn-back" onclick="prevStep(5)">← Back</button>
+                <button class="btn btn-primary btn--lg" onclick="submitApplication()" style="padding:var(--space-4) var(--space-8);">
+                  Get My Offers →
+                </button>
+              </div>
+            </div>
+
+            <!-- Success State -->
+            <div class="apply-success" id="applySuccess">
+              <div class="success-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h2>Application Received!</h2>
+              <p>Our advisor will call you within <strong>30 minutes</strong> with personalised offers from our lending partners.</p>
+              <div style="background:var(--grey-50); border-radius:var(--radius-xl); padding:var(--space-6); margin:var(--space-8) 0; border:1px solid var(--grey-200);">
+                <div style="font-size:var(--text-sm); color:var(--grey-500); margin-bottom:var(--space-2);">Application Reference</div>
+                <div style="font-family:var(--font-mono); font-size:var(--text-lg); font-weight:var(--weight-semibold); color:var(--navy-900);" id="appRef">FINS-2024-XXXXX</div>
+              </div>
+              <a class="btn btn-outline" data-page="home" href="#">← Return to Home</a>
+            </div>
+
+            <div class="trust-microcopy" id="formTrust">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              256-bit encrypted · No hard credit pull · Data never sold
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="apply-sidebar">
+          <div class="sidebar-title">Why FINS Capital?</div>
+          <div class="sidebar-benefits">
+            <div class="benefit-item">
+              <div class="benefit-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="benefit-text"><strong>One application, 40+ lenders.</strong> We compare every relevant offer so you don't have to.</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="benefit-text"><strong>Soft CIBIL check only.</strong> Comparing offers does not affect your credit score.</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="benefit-text"><strong>Dedicated advisor assigned.</strong> A human expert manages your file end-to-end.</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="benefit-text"><strong>97% sanction rate</strong> on applications we formally submit to lenders.</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="benefit-text"><strong>Zero upfront fee.</strong> We earn only when you disburse — our interests are aligned.</div>
+            </div>
+          </div>
+
+          <div class="sidebar-lenders">
+            <div class="sl-label">Our Lender Network</div>
+            <div class="lender-logos">
+              <div class="lender-chip">HDFC</div>
+              <div class="lender-chip">ICICI</div>
+              <div class="lender-chip">Axis</div>
+              <div class="lender-chip">SBI</div>
+              <div class="lender-chip">Kotak</div>
+              <div class="lender-chip">Bajaj</div>
+              <div class="lender-chip">IDFC</div>
+              <div class="lender-chip">Tata</div>
+              <div class="lender-chip">+32 more</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- end apply -->
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER (shared)
+══════════════════════════════════════════════════════════ -->
+<footer class="footer" id="siteFooter">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" data-page="home" style="margin-bottom:var(--space-4);">
+          <div class="nav-logo-mark">F</div>
+          <div>
+            <div class="nav-logo-text">FINS Capital</div>
+            <span class="nav-logo-sub" style="color:rgba(255,255,255,0.25);">Financial Intelligence</span>
+          </div>
+        </a>
+        <p>India's trusted loan aggregator — helping salaried professionals and business owners access the right credit at the right cost since 2018.</p>
+        <div style="margin-top:var(--space-4);">
+          <span class="rbi-badge">RBI Registered · LSP</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Products</div>
+        <div class="footer-links">
+          <a class="footer-link" data-page="services" href="#">Home Loan</a>
+          <a class="footer-link" data-page="services" href="#">Personal Loan</a>
+          <a class="footer-link" data-page="services" href="#">Business Loan</a>
+          <a class="footer-link" data-page="services" href="#">Loan Against Property</a>
+          <a class="footer-link" data-page="services" href="#">Balance Transfer</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a class="footer-link" data-page="about" href="#">About Us</a>
+          <a class="footer-link" data-page="contact" href="#">Contact</a>
+          <a class="footer-link" href="#">Careers</a>
+          <a class="footer-link" href="#">Press</a>
+          <a class="footer-link" href="#">Grievance Redressal</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#">Privacy Policy</a>
+          <a class="footer-link" href="#">Terms of Use</a>
+          <a class="footer-link" href="#">Cookie Policy</a>
+          <a class="footer-link" href="#">Disclaimer</a>
+          <a class="footer-link" href="#">Fair Practice Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 FINS Capital Pvt. Ltd. All rights reserved. · CIN: U65999KA2018PTC123456</p>
+      <p style="font-size:10px; color:rgba(255,255,255,0.15); max-width:500px; text-align:right;">
+        Interest rates displayed are indicative and subject to change. Loan approval at sole discretion of lenders. FINS Capital is a loan service provider, not a lender. Please read all terms carefully.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta-bar" id="stickyCta">
+  <a class="btn btn-primary" data-page="apply" href="#">Apply Now — Free & Instant →</a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
